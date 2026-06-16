@@ -52,7 +52,9 @@ export default function DefaultTab() {
 
   const handleKeyApply = (key: string) => {
     if (!key.trim()) return;
-    void applyGeminiKey(key.trim());
+    void applyGeminiKey(key.trim()).catch(() => {
+      // The toast in applyGeminiKey already shows the user-facing error.
+    });
   };
 
   return (
